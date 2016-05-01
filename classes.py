@@ -54,8 +54,9 @@ class tkList:
 					", columna: " + str(token.column))
 
 			else:
-				print("Token: "+token.name+ " ,valor: ("+str(token.val)+\
-					"), fila: "+ str(token.row) + ", columna: " + str(token.column))
+				print("Token: "+token.name+ " , valor: ("+str(token.val )+\
+					"), fila: "+ str(token.row) + ", columna: " + \
+					str(token.column))
 
 	def printError(self):
 		"""Imprime en pantalla el contenido de la lista de errores"""

@@ -23,7 +23,7 @@ while (True):
 	tok = lexer.token()
 	if (not tok):
 		break
-	if (tok.type == 'TkIdent' or tok.type == 'TkNum' or\
+	if (tok.type == 'TkId' or tok.type == 'TkNum' or\
 	 tok.type == 'TkCaracter'):
 		tokenlist.tokens.append(token(tok.type, tok.lineno,\
 		 find_column(content, tok), tok.value))
