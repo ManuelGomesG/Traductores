@@ -1,9 +1,18 @@
-
+#!/usr/bin/python3
+# Universidad Simon Bolívar 
+#
+# Traductores e interpretadores - CI3715
+#
+# Manuel Gomes. Carnet: 11-10375
+# Ricardo Vethencourt. Carnet: 09-10894
+#
+# Proyecto 1
+# Definición de clases utilizadas en el programa.
 
 import sys
 
 
-
+# Clase token
 
 class token:
 
@@ -22,7 +31,7 @@ class token:
 		self.val=val
 
 
-
+# Lista que contendrá tokens y errores.
 class tkList:
 	"""Lista de tokens"""
 	def __init__(self, tokens=[], errors=[]):
@@ -60,7 +69,7 @@ class tkList:
 
 	def printError(self):
 		"""Imprime en pantalla el contenido de la lista de errores"""
-		for err in self.errList:
+		for err in self.errors:
 			print(err + '\n')
 
 		

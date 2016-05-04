@@ -1,3 +1,15 @@
+#!/usr/bin/python3
+# Universidad Simon Bolívar 
+#
+# Traductores e interpretadores - CI3715
+#
+# Manuel Gomes. Carnet: 11-10375
+# Ricardo Vethencourt. Carnet: 09-10894
+#
+# Proyecto 1
+# Reglas del analizador lexicográfico.
+
+
 
 
 import ply.lex as lex
@@ -8,12 +20,12 @@ global tokenlist
 
 tokenlist=tkList()
 
-
+#Apertura del archivo y lectura del mismo.
 with open(sys.argv[1], 'r') as content_file:
 	content = 	content_file.read()
 content_file.close()
 
-
+# Lista de tokens
 tokens = (
 	"TkBegin","TkWhile","TkBool","TkIf","TkId", "TkNum", "TkTrue", "TkFalse",
 	"TkCaracter", "TkComa", "TkPunto", "TkDosPuntos", "TkParAbre", 
@@ -105,12 +117,12 @@ def t_TkCaracter(t):
 	t.type = reserved.get(t.value,'TkCaracter')
 	return t
 
-# Define a rule so we can track line numbers
+# Regla para identificar los newlines
 def t_newline(t):
     r'\n+'
     t.lexer.lineno += len(t.value)
 
-# A string containing ignored characters (spaces and tabs)
+# Ignorar tabs y espacios
 t_ignore  = ' \t'
 
 
@@ -122,19 +134,17 @@ def t_error(t):
 	  str(find_column(content, t)))
     t.lexer.skip(1)
 
+# Definición del token de identificadores.
 
 def t_ID(t):
     r'[a-zA-Z][a-zA-Z_0-9]*'
     t.type = reserved.get(t.value,'TkId')    # Check for reserved words
     return t
-
+"""
 def t_Comment(t):	
-	r'%{.*}%'
-	for commentContent in t.value:
-		for word in commentContent:
-			if (word == '\n'):
-				t.lexer.lineno += 1
-	t.lexer.lineno += 1
-	t.lexer.skip(1)
+	r'%{[.]*}%'
+	pass
+"""
+#Ignorar commentarios
+t_ignore_COMMENT = r'%{.*}%'
 
-# Generando el lexer

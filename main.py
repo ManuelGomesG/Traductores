@@ -32,3 +32,4 @@ while (True):
 		 find_column(content, tok)))
 
 tokenlist.printTokens()
+tokenlist.printError()
