@@ -1,0 +1,8 @@
+with
+	var contador : int
+
+begin
+	%{ asignar al contador
+	el valor 35 }%
+	contador <- 35.
+end
