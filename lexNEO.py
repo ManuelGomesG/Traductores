@@ -34,7 +34,7 @@ tokens = (
 	"TkDiv", "TkMod", "TkConjuncion", "TkDisyuncion", "TkNegacion", "TkMenor",
 	"TkMenorIgual", "TkMayor", "TkMayorIgual", "TkIgual", "TkSiguienteCar",
 	"TkAnteriorCar", "TkValorAscii", "TkConcatenacion", "TkRotacion", 
-	"TkTrasposicion","TkEnd", "TkInt", "TkMult", "TkWith", "TkNegacion"
+	"TkTrasposicion","TkEnd", "TkInt", "TkMult", "TkWith", "TkNegacion", "TkVar"
 	)
 
 
@@ -48,7 +48,8 @@ reserved = {
 	"int":		"TkInt",
 	"char":		"TkChar",
 	"with":		"TkWith",
-	"not":		"TkNegacion"
+	"not":		"TkNegacion",
+	"var":      "TkVar"
 	}
 
 #------------------------------------------------------------------------------#

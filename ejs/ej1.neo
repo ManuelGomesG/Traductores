@@ -1,0 +1,9 @@
+int
+	var 35 begin
+
+
+with :
+	%{ un comentario
+ 	con salto de linea 35 }%
+ 	contador . <- end
+ contador
