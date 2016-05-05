@@ -117,7 +117,7 @@ def t_TkCaracter(t):
 	t.type = reserved.get(t.value,'TkCaracter')
 	return t
 
-# Regla para identificar los newlines
+# Regla para identificar los saltos de linea
 def t_newline(t):
     r'\n+'
     t.lexer.lineno += len(t.value)
@@ -138,7 +138,7 @@ def t_error(t):
 
 def t_ID(t):
     r'[a-zA-Z][a-zA-Z_0-9]*'
-    t.type = reserved.get(t.value,'TkId')    # Busca las palabras resevadas
+    t.type = reserved.get(t.value,'TkId')    # Revisa palabras reservadas
     return t
 
 # Definición de comentario.
