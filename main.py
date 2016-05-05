@@ -12,7 +12,7 @@ import sys
 from lexNEO import *
 
 
-#Generando el lexer
+# Generando el lexer
 lexer = lex.lex()
 
 
