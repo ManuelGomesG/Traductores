@@ -30,6 +30,6 @@ while (True):
 	else:
 		tokenlist.tokens.append(token(tok.type, tok.lineno,\
 		 find_column(content, tok)))
-
+#Imprime tokens y errores en pantalla.
 tokenlist.printTokens()
 tokenlist.printError()

@@ -33,7 +33,6 @@ class token:
 
 # Lista que contendrá tokens y errores.
 class tkList:
-	"""Lista de tokens"""
 	def __init__(self, tokens=[], errors=[]):
 		"""
 		Definición e inicialización de la lista de tokens
@@ -63,14 +62,14 @@ class tkList:
 					", columna: " + str(token.column))
 
 			else:
-				print("Token: "+token.name+ " , valor: ("+str(token.val )+\
+				print("Token: "+token.name+ ", valor: ("+str(token.val )+\
 					"), fila: "+ str(token.row) + ", columna: " + \
 					str(token.column))
 
 	def printError(self):
 		"""Imprime en pantalla el contenido de la lista de errores"""
-		for err in self.errors:
-			print(err + '\n')
+		for error in self.errors:
+			print(error)
 
 		
 

@@ -34,7 +34,7 @@ tokens = (
 	"TkDiv", "TkMod", "TkConjuncion", "TkDisyuncion", "TkNegacion", "TkMenor",
 	"TkMenorIgual", "TkMayor", "TkMayorIgual", "TkIgual", "TkSiguienteCar",
 	"TkAnteriorCar", "TkValorAscii", "TkConcatenacion", "TkRotacion", 
-	"TkTrasposicion","TkEnd", "TkInt", "TkMult", "TkWith", "TkNegacion",
+	"TkTrasposicion","TkEnd", "TkInt", "TkMult", "TkWith", "TkNegacion"
 	)
 
 
@@ -48,7 +48,7 @@ reserved = {
 	"int":		"TkInt",
 	"char":		"TkChar",
 	"with":		"TkWith",
-	"not":		"TkNegacio"
+	"not":		"TkNegacion"
 	}
 
 #------------------------------------------------------------------------------#
@@ -129,7 +129,7 @@ t_ignore  = ' \t'
 
 # Manejo de errores
 def t_error(t):
-    print("Error: Caracter inesperado "+ '"' +\
+    tokenlist.errors.append("Error: Caracter inesperado "+ '"' +\
 	 t.value[0] + '"' + " en la fila " + str(t.lineno) +", columna " +\
 	  str(find_column(content, t)))
     t.lexer.skip(1)
@@ -138,13 +138,21 @@ def t_error(t):
 
 def t_ID(t):
     r'[a-zA-Z][a-zA-Z_0-9]*'
-    t.type = reserved.get(t.value,'TkId')    # Check for reserved words
+    t.type = reserved.get(t.value,'TkId')    # Busca las palabras resevadas
     return t
-"""
+
+# Definición de comentario.
 def t_Comment(t):	
-	r'%{[.]*}%'
-	pass
-"""
+	r'%{[\x00-\x7F]*}%'
+	# Ciclo para contar los newlines dentro de los comentarios para que lineno
+	# sea consistente.
+	for content in t.value:
+		for word in content:
+			if (word == '\n'):
+				t.lexer.lineno += 1
+	t.lexer.skip(1)
+	
+
 #Ignorar commentarios
-t_ignore_COMMENT = r'%{.*}%'
+#t_ignore_COMMENT = r'%{.*}%'
 
