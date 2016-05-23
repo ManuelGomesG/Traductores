@@ -51,7 +51,14 @@ reserved = {
 	"char":		"TkChar",
 	"with":		"TkWith",
 	"not":		"TkNegacion",
-	"var":      "TkVar"
+	"var":      "TkVar",
+	"matrix":	"TkMatrix",
+	"of":		"TkOf",
+	"print": 	"TkPrint",
+	"read":		"TkRead",
+	"otherwise":"TkOtherwise", 
+	"for":		"TkFor",
+	"from":		"TkFrom",
 	}
 
 #------------------------------------------------------------------------------#
@@ -60,10 +67,6 @@ reserved = {
 
 
 # Expresiones Regulares para los tokens simples.
-
-
-
-
 t_TkComa			= r'\,'
 t_TkPunto			= r'\.'
 t_TkDosPuntos		= r'\:'
