@@ -30,11 +30,13 @@ tokens = (
 	"TkBegin","TkWhile","TkBool","TkIf","TkId", "TkNum", "TkTrue", "TkFalse",
 	"TkCaracter", "TkComa", "TkPunto", "TkDosPuntos", "TkParAbre", 
 	"TkParCierra", "TkCorcheteAbre", "TkCorcheteCierra", "TkLlaveAbre", 
-	"TkLlaveCierra", "TkHacer", "TkAsignacion", "TkSuma", "TkResta", "TkMulr",
+	"TkLlaveCierra", "TkHacer", "TkAsignacion", "TkSuma", "TkResta",
 	"TkDiv", "TkMod", "TkConjuncion", "TkDisyuncion", "TkNegacion", "TkMenor",
 	"TkMenorIgual", "TkMayor", "TkMayorIgual", "TkIgual", "TkSiguienteCar",
 	"TkAnteriorCar", "TkValorAscii", "TkConcatenacion", "TkRotacion", 
-	"TkTrasposicion","TkEnd", "TkInt", "TkMult", "TkWith", "TkNegacion", "TkVar"
+	"TkTrasposicion","TkEnd", "TkInt", "TkMult", "TkWith", "TkNegacion", "TkVar",
+	"TkMatrix", "TkOf", "TkPrint", "TkRead", "TkOtherwise", "TkFor", "TkFrom",
+	"TkTo", "TkStep"
 	)
 
 
@@ -87,11 +89,13 @@ t_TkMayor			= r'\>'
 t_TkMayorIgual		= r'\>\='
 t_TkIgual 			= r'\='
 t_TkSiguienteCar	= r'\+\+'
-t_TkAnteriorCar	= r'\-'
+t_TkAnteriorCar		= r'\-\-'
 t_TkValorAscii		= r'\#'
 t_TkConcatenacion	= r'\:\:'
 t_TkRotacion 		= r'\$'
 t_TkTrasposicion	= r'\?'
+t_TkIzq				= r'\<\-'
+t_Tkder				= r'\-\>'
 
 
 
