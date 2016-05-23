@@ -101,8 +101,6 @@ t_TkTrasposicion	= r'\?'
 t_TkIzq				= r'\<\-'
 t_Tkder				= r'\-\>'
 
-
-
 def find_column(input, tok):
 		"""
 		Busqueda de la columna de un token dado
@@ -134,8 +132,6 @@ def t_newline(t):
 # Ignorar tabs y espacios
 t_ignore  = ' \t'
 
-
-
 # Manejo de errores
 def t_error(t):
     tokenlist.errors.append("Error: Caracter inesperado "+ '"' +\
@@ -144,7 +140,6 @@ def t_error(t):
     t.lexer.skip(1)
 
 # Definición del token de identificadores.
-
 def t_ID(t):
     r'[a-zA-Z][a-zA-Z_0-9]*'
     t.type = reserved.get(t.value,'TkId')    # Revisa palabras reservadas
@@ -160,8 +155,6 @@ def t_Comment(t):
 			if (word == '\n'):
 				t.lexer.lineno += 1
 	t.lexer.skip(1)
-	
 
 #Ignorar commentarios
 #t_ignore_COMMENT = r'%{.*}%'
-

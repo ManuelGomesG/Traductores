@@ -33,14 +33,14 @@ def p_LDIM(p):
 
 # Instrucciones
 def p_INST(p):
-	'''INST : TkId TkIzq EXP
-			| INST TkPunto INST
-			| IF
-			| REPDET
-			| REPIND
-			| S
-			| TkRead TkId
-			| TkPrint EXP'''
+	'''INST : TkId TkIzq EXP TkPunto
+			| INST INST TkPunto
+			| IF TkPunto
+			| REPDET TkPunto
+			| REPIND TkPunto
+			| S TkPunto
+			| TkRead TkId TkPunto
+			| TkPrint EXP TkPunto'''
 
 # Lista de declaraciones de variables
 def p_LDEC(p):
@@ -76,9 +76,11 @@ def p_ARIT(p):
 			| ARIT TkDiv ARIT
 			| ARIT TkMult ARIT
 			| ARIT Tkmod ARIT
-			| TkResta ARIT
 			| TkParAbre ARIT TkParCierra
 			| TkNum'''
+
+def p_UMENOS(p):
+    'ARIT : TkResta ARIT %prec UMENOS'
 
 # Expresiones booleanas
 def p_BOOL(p):
@@ -97,7 +99,7 @@ def p_CHAR(p):
 
 # Expresiones matriciales
 def p_MATRIZ(p):
-	'''MATRIZ : MATRIZ TkDosPuntos MATRIZ
+	'''MATRIZ : MATRIZ TkConcatenacion MATRIZ
 			  | MATRIZ TkTrasposicion
 			  | TkRotacion MATRIZ
 			  | TkParAbre MATRIZ TkParCierra
@@ -124,3 +126,12 @@ def p_ARCH(p):
 def p_BOOLM(p):
 	'''BOOLM : BOOL
 			 | MATRIZ'''
+
+precedence = (
+	('left', 'TkSuma', 'TkResta', 'TkDisyuncion', 'TkSiguienteCar', 'TkAnteriorCar', 'TkConcatenacion'),
+	('left' , 'TkMult', 'TkDiv', 'TkMod', 'TkConjuncion'),
+	('right', 'TkRotacion'),
+	('left', 'TkTrasposicion')
+	('right', 'UMENOS', 'TkNot', 'TkValorAscii'),
+)
+
