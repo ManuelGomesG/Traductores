@@ -32,7 +32,7 @@ tokens = (
 	"TkParCierra", "TkCorcheteAbre", "TkCorcheteCierra", "TkLlaveAbre", 
 	"TkLlaveCierra", "TkHacer", "TkAsignacion", "TkSuma", "TkResta",
 	"TkDiv", "TkMod", "TkConjuncion", "TkDisyuncion", "TkNegacion", "TkMenor",
-	"TkMenorIgual", "TkMayor", "TkMayorIgual", "TkIgual", "TkSiguienteCar",
+	"TkMenorIgual", "TkMayor", "TkMayorIgual", "TkIgual", "TkNoIgual", "TkSiguienteCar",
 	"TkAnteriorCar", "TkValorAscii", "TkConcatenacion", "TkRotacion", 
 	"TkTrasposicion","TkEnd", "TkInt", "TkMult", "TkWith", "TkNegacion", "TkVar",
 	"TkMatrix", "TkOf", "TkPrint", "TkRead", "TkOtherwise", "TkFor", "TkFrom",
@@ -91,6 +91,7 @@ t_TkMenorIgual		= r'\<\='
 t_TkMayor			= r'\>'
 t_TkMayorIgual		= r'\>\='
 t_TkIgual 			= r'\='
+t_TkNoIgual 		= r'\/\='
 t_TkSiguienteCar	= r'\+\+'
 t_TkAnteriorCar		= r'\-\-'
 t_TkValorAscii		= r'\#'
