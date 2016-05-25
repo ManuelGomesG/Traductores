@@ -33,3 +33,13 @@ while (True):
 #Imprime tokens y errores en pantalla.
 tokenlist.printTokens()
 tokenlist.printError()
+
+
+
+### SEGUNDA ETAPA  #####################################################
+parser = yacc.yacc()
+parser.parse(content)
+symTable = symbolTable()
+construction = tableBuildUp(T)
+construction.fillTable(symTable)
+T.printPreorden()
