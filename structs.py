@@ -1,4 +1,13 @@
-
+#!/usr/bin/python3
+# Universidad Simon Bolívar 
+#
+# Traductores e interpretadores - CI3715
+#
+# Manuel Gomes. Carnet: 11-10375
+# Ricardo Vethencourt. Carnet: 09-10894
+#
+# Proyecto 1
+# Estructuras para el arbol sintáctico.
 
 
 class BinaryOp (Expr):

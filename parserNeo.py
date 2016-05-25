@@ -1,4 +1,22 @@
+#!/usr/bin/python3
+# Universidad Simon Bolívar 
+#
+# Traductores e interpretadores - CI3715
+#
+# Manuel Gomes. Carnet: 11-10375
+# Ricardo Vethencourt. Carnet: 09-10894
+#
+# Proyecto 1
+# implementación de la gramática.
+
+
+
+
+
 import ply.yacc as yacc
+import re
+from structs import *
+from lexNEO import *
 
 global T
 
@@ -169,23 +187,21 @@ def p_UMENOS(p):
 def p_BOOL(p):
 	'''BOOL : BOOL TkDisyuncion BOOL
 			| BOOL TkConjuncion BOOL
-			| BOOL TkIgual BOOL
 			| TkNot BOOL
 			| TkParAbre BOOL TkParCierra
 			| TkTrue
 			| TkFalse'''
-	if(len(p)==3):
+	if(len(p)==4):
 		if(p[2] == "/\\"):
 			p[0]=BinaryOp(p[1],p[3],p[2],"Conjuction","Boolean")
 		elif (p[2] == "\\/"):	
 			p[0]=BinaryOp(p[1],p[3],p[2],"Disjuction","Boolean")
-		elif (p[2] == "="):
-			p[0]=BinaryOp(p[1],p[3],p[2],"Equals","Boolean")
+
 		else:
 			p[0]=p[2]
-	elif(len(p)==2):
+	elif(len(p)==3):
 		p[0]=UnaryOp(p[1],"Negation",p[2],"Arithmetic")
-	elif(p[1]=='True' or 'False'):
+	elif(p[1]=='True' or p[2]=='False'):
 		p[0]=Bool(p[1])
 
 
@@ -193,7 +209,12 @@ def p_BOOL(p):
 def p_CHAR(p):
 	'''CHAR : TkCaracter TkSiguienteCar
 			| TkCaracter TkAnteriorCar
-			| TkValorAscii TkChar'''
+			| TkValorAscii TkCaracter'''
+	if(p[3]=='\+\+'or p[2]=='\-\-'):
+		p[0]==UnaryOp(p[2],"NextChar",p[1],"CharOP")
+	else:
+		p[0]==UnaryOp(p[1],"PrevChar",p[2],"CharOP")
+
 
 
 # Expresiones matriciales
@@ -204,7 +225,20 @@ def p_MATRIZ(p):
 			  | TkParAbre MATRIZ TkParCierra
 			  | TkLlaveAbre LDIM TkLlaveCierra
 			  | TkLlaveAbre MATRIZ TkComa MATRIZ TkLlaveCierra'''
-	if()
+	if(len(p)==4):
+		if(p[4]=='\:\:'):
+			p[0]=InstrTree("Matrix",[p[1],p[3]])
+		elif(p[1] == "(" and p[3] == ")"):
+			p[0]=p[2]
+		elif(p[1] == "{" and p[3] == "}"):
+			p[0]=p[2]
+	elif(len(p)==5):
+		p[0]=InstrTree("Matrix",[p[2],p[3]])
+	elif(p[1]=='\$')
+		p[0]=InstrTree("Matrix",p[2])
+	else:
+		p[0]=InstrTree("Matrix",p[3])
+
 
 # Expresiones relacionales
 def p_REL(p):
@@ -217,17 +251,40 @@ def p_REL(p):
 		   | BOOLM TkIgual BOOLM
 		   | BOOLM TkNoIgual BOOLM'''
 
+	if (p[2] == "="):
+		p[0]=BinaryOp(p[1],p[3],p[2],"Equals","Boolean")
+	elif (p[2] == "\/\="):
+		p[0]=BinaryOp(p[1],p[3],p[2],"NotEquals","Boolean")
+	elif (p[2] == "\/\="):
+		p[0]=BinaryOp(p[1],p[3],p[2],"NotEquals","CharArr")
+	elif (p[2] == "="):
+		p[0]=BinaryOp(p[1],p[3],p[2],"Equals","CharArr")
+	elif (p[2] == "\<\="):
+		p[0]=BinaryOp(p[1],p[3],p[2],"LessOrEq","CharArr")
+	elif (p[2] == "\<"):
+		p[0]=BinaryOp(p[1],p[3],p[2],"Less","CharArr")
+	elif (p[2] == "\>\="):
+		p[0]=BinaryOp(p[1],p[3],p[2],"MoreOrEq","CharArr")
+	elif (p[2] == "\>"):
+		p[0]=BinaryOp(p[1],p[3],p[2],"More","CharArr")
+
+
+
 
 # Agrupacion de expresiones aritmeticas y de caracteres
 def p_ARCH(p):
 	'''ARCH : ARITM
 	        | CHAR'''
 
+	p[0]=InstrTree("ArithChar",p[1])
+
+
 
 # Agrupacion de expresoines booleanas y matriciales
 def p_BOOLM(p):
 	'''BOOLM : BOOL
 			 | MATRIZ'''
+	p[0]=InstrTree("BoolMatrix",p[1])
 
 
 precedence = (
