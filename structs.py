@@ -16,6 +16,7 @@ class BinaryOp (Expr):
 class UnaryOp(Expr):
 	def __init__(self,op,opV,term,typ):
 		self.op=op
+		self.opV=opV
 		self.term=typ
 		self.typ=typ
 

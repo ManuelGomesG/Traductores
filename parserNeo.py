@@ -209,6 +209,8 @@ def p_CHAR(p):
 			| TkChar TkAnteriorCar
 			| TkValorAscii TkChar'''
 
+
+
 # Expresiones matriciales
 def p_MATRIZ(p):
 	'''MATRIZ : MATRIZ TkConcatenacion MATRIZ
@@ -217,6 +219,8 @@ def p_MATRIZ(p):
 			  | TkParAbre MATRIZ TkParCierra
 			  | TkLlaveAbre LDIM TkLlaveCierra
 			  | TkLlaveAbre MATRIZ TkComa MATRIZ TkLlaveCierra'''
+
+	if()
 
 # Expresiones relacionales
 def p_REL(p):
