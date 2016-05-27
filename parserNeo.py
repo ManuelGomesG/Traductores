@@ -274,7 +274,7 @@ def p_REL(p):
 
 # Agrupacion de expresiones aritmeticas y de caracteres
 def p_ARCH(p):
-	'''ARCH : ARITM
+	'''ARCH : ARIT
 	        | CHAR'''
 
 	p[0]=InstrTree("ArithChar",p[1])
