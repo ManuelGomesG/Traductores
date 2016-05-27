@@ -234,7 +234,7 @@ def p_MATRIZ(p):
 			p[0]=p[2]
 	elif(len(p)==5):
 		p[0]=InstrTree("Matrix",[p[2],p[3]])
-	elif(p[1]=='\$')
+	elif(p[1]=='\$'):
 		p[0]=InstrTree("Matrix",p[2])
 	else:
 		p[0]=InstrTree("Matrix",p[3])

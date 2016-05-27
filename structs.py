@@ -10,14 +10,13 @@
 # Estructuras para el arbol sintáctico.
 
 
-class BinaryOp (Expr):
+class BinaryOp(Expr):
 	def __init__(self,left,right,op,opV,typ):
 		self.left=left
 		self.right=right
 		self.op=op
 		self.opV=opV
 		self.type=typ
-
 
 	def getValues(self):
 		pass
