@@ -293,6 +293,6 @@ precedence = (
 	('left' , 'TkMult', 'TkDiv', 'TkMod', 'TkConjuncion'),
 	('right', 'TkRotacion'),
 	('left', 'TkTrasposicion'),
-	('right', 'UMENOS', 'TkNot', 'TkValorAscii'),
+	('right', 'UMENOS', 'TkNegacion', 'TkValorAscii'),
 	)
 
