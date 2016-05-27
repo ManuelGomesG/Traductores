@@ -10,7 +10,7 @@
 # Programa que realiza un análisis lexicográfico de un archivo.
 import sys
 from lexNEO import *
-
+from parserNeo import *
 
 # Generando el lexer
 lexer = lex.lex()
