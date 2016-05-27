@@ -25,7 +25,7 @@ T=InstrTree()
 # Simbolo inicial
 def p_S(p):
 	'''S : TkWith LDEC TkBegin INST TkEnd
-		 | tkBegin INST TkEnd'''
+		 | TkBegin INST TkEnd'''
 	if(len(p)==6):
 		T.addToken("Start")
 		T.addChildren([p[2],p[4]])
@@ -127,7 +127,7 @@ def p_EXP(p):
 # Condicional
 def p_IF(p):
 	''' IF : TkIf BOOL TkDer INST TkEnd
-		   | tKIF BOOL TkDer INST TkOtherwise TkDer INST TkEnd'''
+		   | TkIf BOOL TkDer INST TkOtherwise TkDer INST TkEnd'''
 	if(len(p)==6):
 		p[0]=InstrTree("IfInstruction",[p[2],p[4]])
 	else:
@@ -137,7 +137,7 @@ def p_IF(p):
 # Iteraciones determinadas
 def p_REPDET(p):
 	'''REPDET : TkFor TkId TkFrom ARIT TkTo ARIT TkDer INST TkEnd
-			  | TkFor Tkid TkFrom ARIT TkTo ARIT TkStep ARIT TkDer INST TkEnd'''
+			  | TkFor TkId TkFrom ARIT TkTo ARIT TkStep ARIT TkDer INST TkEnd'''
 	if(len(p)==10):
 		p[0]=InstrTree("DetIteration",[p[2],p[4],p[6],p[8]])
 	else:
@@ -156,7 +156,7 @@ def p_ARIT(p):
 			| ARIT TkResta ARIT
 			| ARIT TkDiv ARIT
 			| ARIT TkMult ARIT
-			| ARIT Tkmod ARIT
+			| ARIT TkMod ARIT
 			| ARIT TkIgual ARIT
 			| TkParAbre ARIT TkParCierra
 			| TkNum'''
@@ -187,7 +187,7 @@ def p_UMENOS(p):
 def p_BOOL(p):
 	'''BOOL : BOOL TkDisyuncion BOOL
 			| BOOL TkConjuncion BOOL
-			| TkNot BOOL
+			| TkNegacion BOOL
 			| TkParAbre BOOL TkParCierra
 			| TkTrue
 			| TkFalse'''
@@ -234,7 +234,8 @@ def p_MATRIZ(p):
 			p[0]=p[2]
 	elif(len(p)==5):
 		p[0]=InstrTree("Matrix",[p[2],p[3]])
-	elif (p[1] == '\$'):
+
+	elif(p[1]=='\$'):
 		p[0]=InstrTree("Matrix",p[2])
 	else:
 		p[0]=InstrTree("Matrix",p[3])
@@ -291,7 +292,7 @@ precedence = (
 	('left', 'TkSuma', 'TkResta', 'TkDisyuncion', 'TkSiguienteCar', 'TkAnteriorCar', 'TkConcatenacion'),
 	('left' , 'TkMult', 'TkDiv', 'TkMod', 'TkConjuncion'),
 	('right', 'TkRotacion'),
-	('left', 'TkTrasposicion')
+	('left', 'TkTrasposicion'),
 	('right', 'UMENOS', 'TkNot', 'TkValorAscii'),
 	)
 

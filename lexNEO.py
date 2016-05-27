@@ -36,7 +36,7 @@ tokens = (
 	"TkAnteriorCar", "TkValorAscii", "TkConcatenacion", "TkRotacion", 
 	"TkTrasposicion","TkEnd", "TkInt", "TkMult", "TkWith", "TkNegacion", "TkVar",
 	"TkMatrix", "TkOf", "TkPrint", "TkRead", "TkOtherwise", "TkFor", "TkFrom",
-	"TkTo", "TkStep", "TkIzq", "TkDer"
+	"TkTo", "TkStep", "TkIzq", "TkDer", "TkChar"
 	)
 
 

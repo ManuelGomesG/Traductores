@@ -13,7 +13,6 @@ from lexNEO import *
 from parserNeo import *
 
 
-
 # Generando el lexer
 lexer = lex.lex()
 
