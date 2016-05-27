@@ -146,7 +146,7 @@ def p_REPDET(p):
 
 # Iteraconies indeterminadas
 def p_REPIND(p):
-	'''REPINTD : TkWhile BOOL TkDer INST TkEnd'''
+	'''REPIND : TkWhile BOOL TkDer INST TkEnd'''
 	p[0]=InstrTree("DetIteration",[p[2],p[4]])
 
 
