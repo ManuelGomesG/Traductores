@@ -10,7 +10,7 @@
 # Estructuras para el arbol sintáctico.
 
 
-class BinaryOp (Expr):
+class BinaryOp ():
 	def __init__(self,left,right,op,opV,typ):
 		self.left=left
 		self.right=right
@@ -22,7 +22,7 @@ class BinaryOp (Expr):
 	def getValues(self):
 		pass
 
-class UnaryOp(Expr):
+class UnaryOp():
 	def __init__(self,op,opV,term,typ):
 		self.op=op
 		self.opV=opV
@@ -32,17 +32,17 @@ class UnaryOp(Expr):
 	def getValue():
 		pass
 
-class Number(Expr):
+class Number():
 	def __init__(self,value):
 		self.value=value
 		self.type="Número"
 
-class Bool(Expr):
+class Bool():
 	def __init__(self,value):
 		self.value=value
 		self.type="Booleano"
 
-class Ident(Expr):
+class Ident():
 	def __init__(self,value):
 		self.value=value
 		self.type="Identificador"

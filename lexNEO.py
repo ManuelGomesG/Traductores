@@ -36,7 +36,7 @@ tokens = (
 	"TkAnteriorCar", "TkValorAscii", "TkConcatenacion", "TkRotacion", 
 	"TkTrasposicion","TkEnd", "TkInt", "TkMult", "TkWith", "TkNegacion", "TkVar",
 	"TkMatrix", "TkOf", "TkPrint", "TkRead", "TkOtherwise", "TkFor", "TkFrom",
-	"TkTo", "TkStep"
+	"TkTo", "TkStep", "TkIzq", "TkDer"
 	)
 
 
@@ -100,7 +100,7 @@ t_TkConcatenacion	= r'\:\:'
 t_TkRotacion 		= r'\$'
 t_TkTrasposicion	= r'\?'
 t_TkIzq				= r'\<\-'
-t_Tkder				= r'\-\>'
+t_TkDer				= r'\-\>'
 
 def find_column(input, tok):
 		"""
