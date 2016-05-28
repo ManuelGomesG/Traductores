@@ -13,20 +13,18 @@
 
 class BinaryOp():
 
-	def __init__(self,left,right,op,opV,typ):
+	def __init__(self,left,right,op,typ):
 		self.left=left
 		self.right=right
 		self.op=op
-		self.opV=opV
 		self.type=typ
 
 	def getValues(self):
 		pass
 
 class UnaryOp():
-	def __init__(self,op,opV,term,typ):
+	def __init__(self,op,term,typ):
 		self.op=op
-		self.opV=opV
 		self.term=typ
 		self.typ=typ
 
