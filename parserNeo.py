@@ -62,7 +62,7 @@ def p_TIPO(p):
 			| TkChar
 			| TkBool
 			| DMATRIZ'''
-	p[0]=InstrTree["Type",p[1]]
+	p[0]=InstrTree("Type",p[1])
 
 
 # Declaracion de matrices
@@ -286,6 +286,16 @@ def p_BOOLM(p):
 	'''BOOLM : BOOL
 			 | MATRIZ'''
 	p[0]=InstrTree("BoolMatrix",p[1])
+
+
+# Detección de errores
+def p_error(p):
+    if (not p):
+        return
+    print("Error de sintaxis en la entrada.\nError: '" + str(p.value) +\
+     "' ubicado en la fila {:d}, columna {:d}.".format(p.lineno,\
+      find_column(content, p)))
+    sys.exit()
 
 
 precedence = (

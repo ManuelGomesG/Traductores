@@ -30,7 +30,7 @@ tokens = (
 	"TkBegin","TkWhile","TkBool","TkIf","TkId", "TkNum", "TkTrue", "TkFalse",
 	"TkCaracter", "TkComa", "TkPunto", "TkDosPuntos", "TkParAbre", 
 	"TkParCierra", "TkCorcheteAbre", "TkCorcheteCierra", "TkLlaveAbre", 
-	"TkLlaveCierra", "TkHacer", "TkAsignacion", "TkSuma", "TkResta",
+	"TkLlaveCierra", "TkAsignacion", "TkSuma", "TkResta",
 	"TkDiv", "TkMod", "TkConjuncion", "TkDisyuncion", "TkNegacion", "TkMenor",
 	"TkMenorIgual", "TkMayor", "TkMayorIgual", "TkIgual", "TkNoIgual", "TkSiguienteCar",
 	"TkAnteriorCar", "TkValorAscii", "TkConcatenacion", "TkRotacion", 
@@ -77,7 +77,6 @@ t_TkCorcheteAbre	= r'\['
 t_TkCorcheteCierra	= r'\]'
 t_TkLlaveAbre		= r'\{'
 t_TkLlaveCierra		= r'\}'
-t_TkHacer			= r'\-\>'
 t_TkAsignacion		= r'\<\-'
 t_TkSuma			= r'\+'
 t_TkResta   		= r'\-'
