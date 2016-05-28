@@ -161,19 +161,19 @@ def p_ARIT(p):
 			| TkParAbre ARIT TkParCierra
 			| TkNum'''
 	if(p[2]=='+'):
-		p[0]=BinaryOp(p[1],p[3],p[2],"Plus","Arithmetic")
+		p[0]=BinaryOp(p[1],p[3],p[2],"Arithmetic")
 	elif(p[2]=='-'):
-		p[0]=BinaryOp(p[1],p[3],p[2],"Minus","Arithmetic")
+		p[0]=BinaryOp(p[1],p[3],p[2],"Arithmetic")
 	elif(p[2]=='/'):
-		p[0]=BinaryOp(p[1],p[3],p[2],"Divide","Arithmetic")
+		p[0]=BinaryOp(p[1],p[3],p[2],"Arithmetic")
 	elif(p[2]=='*'):
-		p[0]=BinaryOp(p[1],p[3],p[2],"Times","Arithmetic")
+		p[0]=BinaryOp(p[1],p[3],p[2],"Arithmetic")
 	elif(p[2]=='%'):
-		p[0]=BinaryOp(p[1],p[3],p[2],"Mod","Arithmetic")
+		p[0]=BinaryOp(p[1],p[3],p[2],"Arithmetic")
 	elif(p[1] == "(" and p[3] == ")"):
 		p[0]=p[2]
 	elif (p[2] == "="):
-		p[0]=BinaryOp(p[1],p[3],p[2],"Equals","Arithmetic")
+		p[0]=BinaryOp(p[1],p[3],p[2],"Arithmetic")
 	else:
 		p[0]=Number(p[2])
 
@@ -193,9 +193,9 @@ def p_BOOL(p):
 			| TkFalse'''
 	if(len(p)==4):
 		if(p[2] == "/\\"):
-			p[0]=BinaryOp(p[1],p[3],p[2],"Conjuction","Boolean")
+			p[0]=BinaryOp(p[1],p[3],p[2],"Boolean")
 		elif (p[2] == "\\/"):	
-			p[0]=BinaryOp(p[1],p[3],p[2],"Disjuction","Boolean")
+			p[0]=BinaryOp(p[1],p[3],p[2],"Boolean")
 
 		else:
 			p[0]=p[2]
@@ -252,22 +252,8 @@ def p_REL(p):
 		   | BOOLM TkIgual BOOLM
 		   | BOOLM TkNoIgual BOOLM'''
 
-	if (p[2] == "="):
-		p[0]=BinaryOp(p[1],p[3],p[2],"Equals","Boolean")
-	elif (p[2] == "\/\="):
-		p[0]=BinaryOp(p[1],p[3],p[2],"NotEquals","Boolean")
-	elif (p[2] == "\/\="):
-		p[0]=BinaryOp(p[1],p[3],p[2],"NotEquals","CharArr")
-	elif (p[2] == "="):
-		p[0]=BinaryOp(p[1],p[3],p[2],"Equals","CharArr")
-	elif (p[2] == "\<\="):
-		p[0]=BinaryOp(p[1],p[3],p[2],"LessOrEq","CharArr")
-	elif (p[2] == "\<"):
-		p[0]=BinaryOp(p[1],p[3],p[2],"Less","CharArr")
-	elif (p[2] == "\>\="):
-		p[0]=BinaryOp(p[1],p[3],p[2],"MoreOrEq","CharArr")
-	elif (p[2] == "\>"):
-		p[0]=BinaryOp(p[1],p[3],p[2],"More","CharArr")
+	p[0]=BinaryOp(p[1],p[3],p[2],"Boolean")
+
 
 
 
