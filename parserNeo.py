@@ -171,7 +171,7 @@ def p_ARIT(p):
 
 def p_UMENOS(p):
     'ARIT : TkResta ARIT %prec UMENOS'
-    p[0]=UnaryOp(p[1],"Negative",p[2],"Arithmetic")
+    p[0]=UnaryOp(p[1],p[2],"Arithmetic")
 
 
 # Expresiones booleanas
@@ -191,7 +191,7 @@ def p_BOOL(p):
 		else:
 			p[0]=p[2]
 	elif(len(p)==3):
-		p[0]=UnaryOp(p[1],"Negation",p[2],"Arithmetic")
+		p[0]=UnaryOp(p[1],p[2],"Arithmetic")
 	elif(p[1]=='True' or p[2]=='False'):
 		p[0]=Bool(p[1])
 
@@ -202,9 +202,9 @@ def p_CHAR(p):
 			| TkCaracter TkAnteriorCar
 			| TkValorAscii TkCaracter'''
 	if(p[3]=='\+\+'or p[2]=='\-\-'):
-		p[0]==UnaryOp(p[2],"NextChar",p[1],"CharOP")
+		p[0]==UnaryOp(p[2],p[1],"CharOP")
 	else:
-		p[0]==UnaryOp(p[1],"PrevChar",p[2],"CharOP")
+		p[0]==UnaryOp(p[1],p[2],"CharOP")
 
 
 
