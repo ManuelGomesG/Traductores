@@ -42,7 +42,3 @@ tokenlist.printError()
 lexer.lineno = 1
 parser = yacc.yacc()
 parser.parse(content)
-symTable = symbolTable()
-construction = tableBuildUp(T)
-construction.fillTable(symTable)
-T.printPreorden()
