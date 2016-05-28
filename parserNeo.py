@@ -160,19 +160,10 @@ def p_ARIT(p):
 			| ARIT TkIgual ARIT
 			| TkParAbre ARIT TkParCierra
 			| TkNum'''
-	if(p[2]=='+'):
-		p[0]=BinaryOp(p[1],p[3],p[2],"Arithmetic")
-	elif(p[2]=='-'):
-		p[0]=BinaryOp(p[1],p[3],p[2],"Arithmetic")
-	elif(p[2]=='/'):
-		p[0]=BinaryOp(p[1],p[3],p[2],"Arithmetic")
-	elif(p[2]=='*'):
-		p[0]=BinaryOp(p[1],p[3],p[2],"Arithmetic")
-	elif(p[2]=='%'):
-		p[0]=BinaryOp(p[1],p[3],p[2],"Arithmetic")
-	elif(p[1] == "(" and p[3] == ")"):
+
+	if(p[1] == "(" and p[3] == ")"):
 		p[0]=p[2]
-	elif (p[2] == "="):
+	elif(len(p)==4):
 		p[0]=BinaryOp(p[1],p[3],p[2],"Arithmetic")
 	else:
 		p[0]=Number(p[2])
