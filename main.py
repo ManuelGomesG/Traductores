@@ -38,6 +38,8 @@ tokenlist.printError()
 
 
 ### SEGUNDA ETAPA  #####################################################
+
+lexer.lineno = 1
 parser = yacc.yacc()
 parser.parse(content)
 symTable = symbolTable()
