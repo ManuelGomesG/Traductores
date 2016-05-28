@@ -4,7 +4,7 @@
 # Traductores e interpretadores - CI3715
 #
 # Manuel Gomes. Carnet: 11-10375
-# Ricardo Vethencourt. Carnet: 09-10894
+# Ricardo Vethencourt: Carnet: 09-10894
 #
 # Proyecto 1
 # implementación de la gramática.
@@ -221,7 +221,7 @@ def p_MATRIZ(p):
 			p[0]=InstrTree("Matrix",[p[1],p[3]])
 		elif(p[1] == "(" and p[3] == ")"):
 			p[0]=p[2]
-		elif(p[1] == "{" and p[3] == "}"):
+		elBinaryif(p[1] == "{" and p[3] == "}"):
 			p[0]=p[2]
 	elif(len(p)==5):
 		p[0]=InstrTree("Matrix",[p[2],p[3]])
