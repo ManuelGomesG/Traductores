@@ -161,12 +161,12 @@ def p_ARIT(p):
 			| TkParAbre ARIT TkParCierra
 			| TkNum'''
 
-	if(p[1] == "(" and p[3] == ")"):
-		p[0]=p[2]
-	elif(len(p)==4):
+	if (len(p)==4):
 		p[0]=BinaryOp(p[1],p[3],p[2],"Arithmetic")
+	elif (p[1] == "(" and p[3] == ")"):
+		p[0]=p[2]
 	else:
-		p[0]=Number(p[2])
+		p[0]=Number(p[1])
 
 
 def p_UMENOS(p):
@@ -221,7 +221,7 @@ def p_MATRIZ(p):
 			p[0]=InstrTree("Matrix",[p[1],p[3]])
 		elif(p[1] == "(" and p[3] == ")"):
 			p[0]=p[2]
-		elBinaryif(p[1] == "{" and p[3] == "}"):
+		if(p[1] == "{" and p[3] == "}"):
 			p[0]=p[2]
 	elif(len(p)==5):
 		p[0]=InstrTree("Matrix",[p[2],p[3]])

@@ -56,7 +56,7 @@ class InstrTree():
 		self.instr=instr
 
 	def addChildren(self,children):
-		self.child=child
+		self.child=children
 
 	def addToken(self,token):
 		self.token=token
